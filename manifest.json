@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.dankestrick.omacanon",
+  "name": "OmaCanon",
+  "version": "0.1.0",
+  "author": "Dankestrick",
+  "license": "MIT",
+  "description": "Plug in a Canon camera by USB and its new photos come over to Pictures/Canon, sorted by day. Go through them on big previews, trash the bad ones, and keep the rest in the folder or add them to OmaRAW with tags and an album.",
+  "dependencies": [
+    {
+      "name": "gphoto2",
+      "package": "gphoto2",
+      "why": "Talks to the camera over USB"
+    },
+    {
+      "name": "python",
+      "package": "python",
+      "why": "Runs the helper that brings the photos over"
+    },
+    {
+      "name": "Pillow",
+      "package": "python-pillow",
+      "why": "Makes the previews from each photo"
+    },
+    {
+      "name": "setpriv",
+      "package": "util-linux",
+      "why": "Ends a download together with the shell"
+    }
+  ],
+  "kinds": [
+    "service",
+    "overlay"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "service": "qml/Service.qml",
+    "overlay": "qml/Overlay.qml"
+  }
+}
